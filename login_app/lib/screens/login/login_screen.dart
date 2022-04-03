@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/resources/colors.dart';
 import 'package:login_app/screens/login/signin_form.dart';
+import 'package:login_app/screens/login/signup_form.dart';
 import 'package:login_app/widgets/app_logo.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -71,16 +72,8 @@ class LoginScreen extends StatelessWidget {
 
   Widget _buildTabItems(BuildContext context) {
     return TabBarView(children: [
-      _buildSignInTabContent(context),
-      _buildSignUpTabContext(context),
+      SignInForm(),
+      SignUpForm(),
     ]);
-  }
-
-  Widget _buildSignInTabContent(BuildContext context) {
-    return SignInForm();
-  }
-
-  Widget _buildSignUpTabContext(BuildContext context) {
-    return Text("Sign in content here soon");
   }
 }
