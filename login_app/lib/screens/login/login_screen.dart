@@ -14,25 +14,24 @@ class LoginScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: ColorPalette.primaryColor,
         body: SafeArea(
-          child: SizedBox.expand(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: AppLogo(),
-                    flex: 2,
-                  ),
-                  SizedBox(height: 32),
-                  Expanded(
-                    flex: 10,
-                    child: _buildAuthTabsContent(context),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: _buildSocialLoginPanel(context),
-                  ),
-                ],
+          child: SizedBox(
+            width: double.infinity,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    SizedBox(height: 64),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      child: AppLogo(),
+                    ),
+                    SizedBox(height: 32),
+                    _buildAuthTabsContent(context),
+                    _buildSocialLoginPanel(context),
+                    SizedBox(height: 32),
+                  ],
+                ),
               ),
             ),
           ),
@@ -46,9 +45,7 @@ class LoginScreen extends StatelessWidget {
       children: [
         _buildTabTitles(context),
         SizedBox(height: 16),
-        Expanded(
-          child: _buildTabItems(context),
-        ),
+        _buildTabItems(context),
       ],
     );
   }
@@ -78,10 +75,19 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget _buildTabItems(BuildContext context) {
-    return TabBarView(children: [
-      SignInForm(),
-      SignUpForm(),
-    ]);
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.4,
+      child: TabBarView(children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: SignInForm(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: SignUpForm(),
+        ),
+      ]),
+    );
   }
 
   Widget _buildSocialLoginPanel(BuildContext context) {
@@ -93,25 +99,24 @@ class LoginScreen extends StatelessWidget {
             color: ColorPalette.textColorBrightDimmed,
           ),
         ),
-        Expanded(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildSocialLoginButton(
-                iconAssetPath: 'assets/images/fb_logo.png',
-                onPressed: () {},
-              ),
-              _buildSocialLoginButton(
-                iconAssetPath: 'assets/images/insta_logo.png',
-                onPressed: () {},
-              ),
-              _buildSocialLoginButton(
-                iconAssetPath: 'assets/images/apple_logo.png',
-                onPressed: () {},
-              ),
-            ],
-          ),
+        SizedBox(height: 8),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildSocialLoginButton(
+              iconAssetPath: 'assets/images/fb_logo.png',
+              onPressed: () {},
+            ),
+            _buildSocialLoginButton(
+              iconAssetPath: 'assets/images/insta_logo.png',
+              onPressed: () {},
+            ),
+            _buildSocialLoginButton(
+              iconAssetPath: 'assets/images/apple_logo.png',
+              onPressed: () {},
+            ),
+          ],
         ),
       ],
     );
