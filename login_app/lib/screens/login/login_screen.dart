@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(height: tfHeight(5)),
-                    AppLogo(),
+                    const AppLogo(),
                     SizedBox(height: tfHeight(5)),
                     _buildAuthTabsContent(context),
                     _buildSocialLoginPanel(context),
@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
     return Column(
       children: [
         _buildTabTitles(context),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         _buildTabItems(context),
       ],
     );

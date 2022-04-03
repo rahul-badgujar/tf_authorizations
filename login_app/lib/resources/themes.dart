@@ -17,7 +17,7 @@ class Themes {
   }
 
   static AppBarTheme get defaultAppBarTheme {
-    return AppBarTheme(
+    return const AppBarTheme(
       elevation: 0,
     );
   }
