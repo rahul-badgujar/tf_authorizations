@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class ColorPalette {
-  static const Color primaryColor = Color.fromARGB(255, 75, 57, 238);
+  static const Color primaryColor = Color.fromARGB(255, 115, 0, 230);
   static MaterialColor primarySwatch = generateMaterialColor(primaryColor);
   static const Color textColorBright = Colors.white;
   static Color textColorBrightDimmed = Colors.white.withOpacity(0.75);
