@@ -17,13 +17,23 @@ class LoginScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 children: [
-                  SizedBox(height: 8),
-                  _buildAppLogo(context),
-                  SizedBox(height: 8),
-                  _buildTabTitles(context),
-                  SizedBox(height: 16),
+                  SizedBox(height: 32),
                   Expanded(
-                    child: _buildTabItems(context),
+                    child: _buildAppLogo(context),
+                    flex: 1,
+                  ),
+                  SizedBox(height: 8),
+                  Expanded(
+                    flex: 6,
+                    child: Column(
+                      children: [
+                        _buildTabTitles(context),
+                        SizedBox(height: 16),
+                        Expanded(
+                          child: _buildTabItems(context),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -35,7 +45,41 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget _buildAppLogo(BuildContext context) {
-    return Text("App Logo here");
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 18),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Image.asset('assets/images/insta_logo.png'),
+          ),
+          SizedBox(width: 18),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Instagram",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 2),
+              Text(
+                "Your place for memes, news",
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.8),
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildTabTitles(BuildContext context) {
