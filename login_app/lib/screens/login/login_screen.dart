@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
     return Column(
       children: [
         _buildTabTitles(context),
-        const SizedBox(height: 16),
+        SizedBox(height: tfHeight(4.2)),
         _buildTabItems(context),
       ],
     );
@@ -54,7 +54,7 @@ class LoginScreen extends StatelessWidget {
           child: Text(
             "     $lableText     ",
             style: TextStyle(
-              fontSize: tfText(3.5),
+              fontSize: tfText(2.8),
             ),
           ),
         );

@@ -16,8 +16,11 @@ class AppLogo extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.all(tfText(1)),
-            child: Image.asset('assets/images/insta_logo.png',
-                width: tfImage(12), height: tfImage(12)),
+            child: Image.asset(
+              'assets/images/insta_logo.png',
+              width: tfImage(16),
+              height: tfImage(16),
+            ),
           ),
           SizedBox(width: tfWidth(3)),
           Column(
@@ -27,16 +30,16 @@ class AppLogo extends StatelessWidget {
                 "Instagram",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: tfText(7),
+                  fontSize: tfText(4.8),
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: tfHeight(0.8)),
+              SizedBox(height: tfHeight(0.3)),
               Text(
                 "Your place for memes, news",
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.8),
-                  fontSize: tfText(2.3),
+                  fontSize: tfText(2),
                 ),
               ),
             ],

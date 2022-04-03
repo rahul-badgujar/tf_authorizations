@@ -10,7 +10,7 @@ class CustomTextField extends StatelessWidget {
     this.obsecureText = false,
   }) : super(key: key);
 
-  static final double textFontSize = tfText(2.4);
+  static final double textFontSize = tfText(2.1);
   final String hintText;
   final TextEditingController controller;
   final bool obsecureText;

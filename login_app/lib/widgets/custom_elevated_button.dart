@@ -26,7 +26,7 @@ class CustomElevatedButton extends StatelessWidget {
         textStyle: MaterialStateProperty.all<TextStyle>(
           TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: tfText(2.8),
+            fontSize: tfText(2.5),
           ),
         ),
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(

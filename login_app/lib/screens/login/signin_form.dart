@@ -39,7 +39,10 @@ class SignInForm extends StatelessWidget {
             ),
           ),
           SizedBox(height: tfHeight(2.6)),
-          FittedBox(fit: BoxFit.scaleDown, child: _buildForgotPasswordButton()),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: _buildForgotPasswordButton(),
+          ),
         ],
       ),
     );
@@ -53,7 +56,7 @@ class SignInForm extends StatelessWidget {
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: tfText(2.6),
+          fontSize: tfText(2.2),
         ),
       ),
     );
