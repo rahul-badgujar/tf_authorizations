@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tf_responsive/tf_responsive.dart';
 
 import '../resources/colors.dart';
 
@@ -25,16 +26,16 @@ class CustomElevatedButton extends StatelessWidget {
         textStyle: MaterialStateProperty.all<TextStyle>(
           TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 16,
+            fontSize: tfText(2.8),
           ),
         ),
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-          EdgeInsets.all(2),
+          EdgeInsets.all(tfImage(1)),
         ),
         fixedSize: MaterialStateProperty.all<Size>(
           Size(
-            MediaQuery.of(context).size.width * 0.5,
-            50,
+            tfWidth(50),
+            tfHeight(7),
           ),
         ),
         shape: MaterialStateProperty.all(

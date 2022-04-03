@@ -31,6 +31,10 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^2.3.1
+  tf_responsive:
+    git:
+      url: https://github.com/rahul-badgujar/tf_responsive.git
+      ref: main
 
 dev_dependencies:
 

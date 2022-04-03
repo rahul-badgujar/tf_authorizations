@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/resources/colors.dart';
+import 'package:tf_responsive/tf_responsive.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -9,7 +10,7 @@ class CustomTextField extends StatelessWidget {
     this.obsecureText = false,
   }) : super(key: key);
 
-  static const double TEXT_FONT_SIZE = 15.0;
+  static final double textFontSize = tfText(2.4);
   final String hintText;
   final TextEditingController controller;
   final bool obsecureText;
@@ -21,12 +22,12 @@ class CustomTextField extends StatelessWidget {
       obscureText: obsecureText,
       style: TextStyle(
         color: ColorPalette.textColorBright,
-        fontSize: TEXT_FONT_SIZE,
+        fontSize: textFontSize,
       ),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 18,
+          horizontal: tfWidth(5),
+          vertical: tfHeight(2),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(9),
@@ -37,7 +38,7 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyle(
           color: ColorPalette.textColorBrightDimmed,
-          fontSize: TEXT_FONT_SIZE,
+          fontSize: textFontSize,
         ),
       ),
     );

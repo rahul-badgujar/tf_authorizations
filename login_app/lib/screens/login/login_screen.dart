@@ -3,6 +3,7 @@ import 'package:login_app/resources/colors.dart';
 import 'package:login_app/screens/login/signin_form.dart';
 import 'package:login_app/screens/login/signup_form.dart';
 import 'package:login_app/widgets/app_logo.dart';
+import 'package:tf_responsive/tf_responsive.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -18,18 +19,15 @@ class LoginScreen extends StatelessWidget {
             width: double.infinity,
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.symmetric(horizontal: tfWidth(4)),
                 child: Column(
                   children: [
-                    SizedBox(height: 64),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.08,
-                      child: AppLogo(),
-                    ),
-                    SizedBox(height: 32),
+                    SizedBox(height: tfHeight(5)),
+                    AppLogo(),
+                    SizedBox(height: tfHeight(5)),
                     _buildAuthTabsContent(context),
                     _buildSocialLoginPanel(context),
-                    SizedBox(height: 32),
+                    SizedBox(height: tfHeight(5)),
                   ],
                 ),
               ),
@@ -56,7 +54,7 @@ class LoginScreen extends StatelessWidget {
           child: Text(
             "     $lableText     ",
             style: TextStyle(
-              fontSize: 18,
+              fontSize: tfText(3.5),
             ),
           ),
         );
@@ -75,15 +73,15 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget _buildTabItems(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.4,
+    return Container(
+      constraints: BoxConstraints(maxHeight: tfHeight(40)),
       child: TabBarView(children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
+          padding: EdgeInsets.symmetric(horizontal: tfWidth(5)),
           child: SignInForm(),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
+          padding: EdgeInsets.symmetric(horizontal: tfWidth(5)),
           child: SignUpForm(),
         ),
       ]),
@@ -99,24 +97,27 @@ class LoginScreen extends StatelessWidget {
             color: ColorPalette.textColorBrightDimmed,
           ),
         ),
-        SizedBox(height: 8),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _buildSocialLoginButton(
-              iconAssetPath: 'assets/images/fb_logo.png',
-              onPressed: () {},
-            ),
-            _buildSocialLoginButton(
-              iconAssetPath: 'assets/images/insta_logo.png',
-              onPressed: () {},
-            ),
-            _buildSocialLoginButton(
-              iconAssetPath: 'assets/images/apple_logo.png',
-              onPressed: () {},
-            ),
-          ],
+        SizedBox(height: tfHeight(2)),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildSocialLoginButton(
+                iconAssetPath: 'assets/images/fb_logo.png',
+                onPressed: () {},
+              ),
+              _buildSocialLoginButton(
+                iconAssetPath: 'assets/images/insta_logo.png',
+                onPressed: () {},
+              ),
+              _buildSocialLoginButton(
+                iconAssetPath: 'assets/images/apple_logo.png',
+                onPressed: () {},
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -125,14 +126,14 @@ class LoginScreen extends StatelessWidget {
   Widget _buildSocialLoginButton(
       {required String iconAssetPath, required VoidCallback onPressed}) {
     return Padding(
-      padding: const EdgeInsets.all(6.0),
+      padding: EdgeInsets.all(tfImage(4)),
       child: GestureDetector(
         onTap: onPressed,
         child: CircleAvatar(
           backgroundColor: Colors.black,
-          radius: 24,
+          radius: tfImage(6.5),
           child: Padding(
-            padding: const EdgeInsets.all(14.0),
+            padding: EdgeInsets.all(tfImage(3.4)),
             child: Image.asset(
               iconAssetPath,
               fit: BoxFit.contain,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tf_responsive/tf_responsive.dart';
 
 class AppLogo extends StatelessWidget {
   const AppLogo({
@@ -7,37 +8,41 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Image.asset('assets/images/insta_logo.png'),
-        ),
-        SizedBox(width: 18),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Instagram",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(tfText(1)),
+            child: Image.asset('assets/images/insta_logo.png',
+                width: tfImage(12), height: tfImage(12)),
+          ),
+          SizedBox(width: tfWidth(3)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Instagram",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: tfText(7),
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(height: 2),
-            Text(
-              "Your place for memes, news",
-              style: TextStyle(
-                color: Colors.white.withOpacity(0.8),
-                fontSize: 14,
+              SizedBox(height: tfHeight(0.8)),
+              Text(
+                "Your place for memes, news",
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.8),
+                  fontSize: tfText(2.3),
+                ),
               ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
