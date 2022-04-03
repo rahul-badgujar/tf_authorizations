@@ -29,6 +29,7 @@ class LoginScreen extends StatelessWidget {
                     child: _buildAuthTabsContent(context),
                   ),
                   Expanded(
+                    flex: 2,
                     child: _buildSocialLoginPanel(context),
                   ),
                 ],
@@ -94,10 +95,46 @@ class LoginScreen extends StatelessWidget {
         ),
         Expanded(
           child: Row(
-            children: [],
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildSocialLoginButton(
+                iconAssetPath: 'assets/images/fb_logo.png',
+                onPressed: () {},
+              ),
+              _buildSocialLoginButton(
+                iconAssetPath: 'assets/images/insta_logo.png',
+                onPressed: () {},
+              ),
+              _buildSocialLoginButton(
+                iconAssetPath: 'assets/images/apple_logo.png',
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildSocialLoginButton(
+      {required String iconAssetPath, required VoidCallback onPressed}) {
+    return Padding(
+      padding: const EdgeInsets.all(6.0),
+      child: GestureDetector(
+        onTap: onPressed,
+        child: CircleAvatar(
+          backgroundColor: Colors.black,
+          radius: 24,
+          child: Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Image.asset(
+              iconAssetPath,
+              fit: BoxFit.contain,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
