@@ -95,6 +95,8 @@ class LoginScreen extends StatelessWidget {
           "Or use a social account to login",
           style: TextStyle(
             color: ColorPalette.textColorBrightDimmed,
+            fontSize: tfText(2),
+            fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(height: tfHeight(2)),
