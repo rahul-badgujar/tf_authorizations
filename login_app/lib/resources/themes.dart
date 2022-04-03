@@ -20,11 +20,4 @@ class Themes {
       elevation: 0,
     );
   }
-
-  static AppBarTheme get lightAppBarTheme {
-    return defaultAppBarTheme.copyWith(
-      backgroundColor: ColorPalette.scaffoldBgColor,
-      foregroundColor: ColorPalette.textDarkShade(3),
-    );
-  }
 }

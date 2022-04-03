@@ -16,26 +16,20 @@ class LoginScreen extends StatelessWidget {
         body: SafeArea(
           child: SizedBox.expand(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
               child: Column(
                 children: [
-                  SizedBox(height: 32),
                   Expanded(
                     child: AppLogo(),
-                    flex: 1,
+                    flex: 2,
                   ),
-                  SizedBox(height: 8),
+                  SizedBox(height: 32),
                   Expanded(
-                    flex: 6,
-                    child: Column(
-                      children: [
-                        _buildTabTitles(context),
-                        SizedBox(height: 16),
-                        Expanded(
-                          child: _buildTabItems(context),
-                        ),
-                      ],
-                    ),
+                    flex: 10,
+                    child: _buildAuthTabsContent(context),
+                  ),
+                  Expanded(
+                    child: _buildSocialLoginPanel(context),
                   ),
                 ],
               ),
@@ -43,6 +37,18 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildAuthTabsContent(BuildContext context) {
+    return Column(
+      children: [
+        _buildTabTitles(context),
+        SizedBox(height: 16),
+        Expanded(
+          child: _buildTabItems(context),
+        ),
+      ],
     );
   }
 
@@ -75,5 +81,23 @@ class LoginScreen extends StatelessWidget {
       SignInForm(),
       SignUpForm(),
     ]);
+  }
+
+  Widget _buildSocialLoginPanel(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          "Or use a social account to login",
+          style: TextStyle(
+            color: ColorPalette.textColorBrightDimmed,
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: [],
+          ),
+        ),
+      ],
+    );
   }
 }

@@ -5,29 +5,9 @@ import 'package:flutter/material.dart';
 class ColorPalette {
   static const Color primaryColor = Color.fromARGB(255, 75, 57, 238);
   static MaterialColor primarySwatch = generateMaterialColor(primaryColor);
-
+  static const Color textColorBright = Colors.white;
+  static Color textColorBrightDimmed = Colors.white.withOpacity(0.75);
   static const Color scaffoldBgColor = Color.fromARGB(255, 252, 252, 252);
-
-  static Color textDarkShade(int shade) {
-    int value = (shade * 16 - 1) % 256;
-    if (value < 0) value = 0;
-    return Color.fromARGB(255, value, value, value);
-  }
-
-  static Color textLightShade(int shade) {
-    shade = 16 - shade;
-    int value = (shade * 16 - 1) % 256;
-    if (value < 0) value = 0;
-    return Color.fromARGB(255, value, value, value);
-  }
-
-  static Color freeEventRegistrationButtonColor = Colors.greenAccent.shade700;
-  static Color paidEventRegistrationButtonColor = Colors.amber.shade600;
-
-  /* static Color primaryColorShadow =
-      Palette.primaryColor.withOpacity(Values.defaultShadowColorOpacity); */
-
-  static Color newItemBubbleColor = ColorPalette.textLightShade(0);
 
   static MaterialColor generateMaterialColor(Color color) {
     return MaterialColor(color.value, {
