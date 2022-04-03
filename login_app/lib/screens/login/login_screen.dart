@@ -46,14 +46,24 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget _buildTabTitles(BuildContext context) {
+    // Builder to build Tab Title Item
+    Widget _tabTitleItemBuilder(String lableText) => Tab(
+          child: Text(
+            "     $lableText     ",
+            style: TextStyle(
+              fontSize: 18,
+            ),
+          ),
+        );
+
     return TabBar(
       indicatorSize: TabBarIndicatorSize.label,
       tabs: [
-        Tab(
-          text: "      Sign In      ",
+        _tabTitleItemBuilder(
+          "Sign In",
         ),
-        Tab(
-          text: "      Sign Up      ",
+        _tabTitleItemBuilder(
+          "Sign Up",
         ),
       ],
     );
