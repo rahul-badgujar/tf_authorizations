@@ -1,4 +1,3 @@
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:login_app/models/social_auth_response.dart';
 import 'package:login_app/utils/enums.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
@@ -12,7 +11,8 @@ Future<SocialAuthResponse> appleSignIn() async {
   String error = "";
   String authCode = "";
   try {
-    AuthorizationCredentialAppleID result = await SignInWithApple.getAppleIDCredential(scopes: [
+    AuthorizationCredentialAppleID result =
+        await SignInWithApple.getAppleIDCredential(scopes: [
       AppleIDAuthorizationScopes.email,
       AppleIDAuthorizationScopes.fullName,
     ]);
@@ -20,7 +20,7 @@ Future<SocialAuthResponse> appleSignIn() async {
     email = result.email ?? "";
     firstName = result.givenName?.split(" ").first ?? "";
     lastName = result.givenName?.replaceFirst(firstName, "").trim() ?? "";
-    authCode = result.authorizationCode ?? "";
+    authCode = result.authorizationCode;
   } catch (e) {
     loginStatus = LoginStatus.FAILED;
     error = e.toString();

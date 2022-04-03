@@ -1,4 +1,3 @@
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:login_app/models/social_auth_response.dart';
 import 'package:login_app/utils/enums.dart';
 import 'package:twitter_login/entity/auth_result.dart';
@@ -36,6 +35,8 @@ Future<SocialAuthResponse> twitterSignIn() async {
         throw Exception("Login Cancelled By User");
       case TwitterLoginStatus.error:
         throw Exception(result.errorMessage ?? "");
+      case null:
+        throw Exception(result.errorMessage ?? "Auth result found null");
     }
   } catch (e) {
     loginStatus = LoginStatus.FAILED;

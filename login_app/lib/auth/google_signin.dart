@@ -1,7 +1,6 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:login_app/models/social_auth_response.dart';
 import 'package:login_app/utils/enums.dart';
-import 'package:twitter_login/twitter_login.dart';
 
 Future<SocialAuthResponse> googleSignIn() async {
   LoginStatus loginStatus = LoginStatus.FAILED;

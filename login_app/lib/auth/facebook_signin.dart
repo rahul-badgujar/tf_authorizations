@@ -1,5 +1,4 @@
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:login_app/models/social_auth_response.dart';
 import 'package:login_app/utils/enums.dart';
 
